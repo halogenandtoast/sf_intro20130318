@@ -1,3 +1,5 @@
 Flashme::Application.routes.draw do
-  get "/decks" => "decks#index"
+  resources :decks do
+    resources :cards, except: [:index]
+  end
 end
