@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def sign_in user
+    cookies.signed[:user_id] = user.id
+  end
+
   def require_login
     unless signed_in?
       redirect_to new_session_path
